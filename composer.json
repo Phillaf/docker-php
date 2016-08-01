@@ -1,0 +1,33 @@
+{
+    "name": "phillaf/docker-php",
+    "description": "An example php project",
+    "type": "project",
+    "keywords": [
+        "docker",
+        "php"
+    ],
+    "homepage": "https://github.com/phillaf/docker-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Philippe Lafrance"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/phillaf/docker-php/issues",
+        "source": "https://github.com/phillaf/docker-php"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "MyApp\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MyApp\\Test\\": "tests"
+        }
+    }
+}

@@ -2,14 +2,13 @@ version: '2'
 services:
 
   php:
-    image: php:7-fpm
+    container_name: php
+    build: docker/php
     volumes:
       - ./:/usr/share/nginx/www
 
   nginx:
-    build: docker/images/nginx
-    ports:
-      - 80:80
+    build: docker/nginx
     links:
       - php
     volumes:

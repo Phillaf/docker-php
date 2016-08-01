@@ -12,16 +12,12 @@ endif
 # Inherited
 #
 
-echo:
-	@echo backend $(ARGS)
-
 update:
 	docker-compose down
-	git pull
 	docker-compose pull
 	docker-compose build
-	docker pull composer/composer 
-	docker run --rm -v $$(pwd):/app composer/composer update
+	wget -q https://getcomposer.org/download/1.2.0/composer.phar -O ./bin/composer.phar
+	docker run -it --rm -v $$(pwd):/app -w /app php php bin/composer.phar update
 
 up:
 	docker-compose up -d
@@ -29,9 +25,9 @@ up:
 down:
 	docker-compose down
 
-composer:
-	docker run --rm -v $$(pwd):/app composer/composer $(ARGS)
-
 #
 # Tools
 #
+
+composer:
+	docker run -it --rm -v $$(pwd):/app -w /app php php bin/composer.phar $(ARGS)
