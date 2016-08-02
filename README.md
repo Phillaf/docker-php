@@ -6,7 +6,7 @@ in the makefile.
 - `make update` downloads composer, pull images, pull repo, build images
 - `make up` shortcut for docker-compose up 
 - `make down` shortcut for docker-compose down
-- `composer` run composer.phar using the php container
+- `make composer` run composer.phar using the php container
 
 
 Issues:
