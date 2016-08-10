@@ -4,6 +4,8 @@ services:
   php:
     container_name: php
     build: docker/php
+    external_links:
+      - mysql
     volumes:
       - ./:/usr/share/nginx/www
 
