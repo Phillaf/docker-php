@@ -10,6 +10,7 @@ services:
       - ./:/usr/share/nginx/www
 
   nginx:
+    container_name: nginx
     build: docker/nginx
     links:
       - php
