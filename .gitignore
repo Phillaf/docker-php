@@ -1,2 +1,2 @@
-bin/composer.phar
-vendor/*
+.env
+/vendor/*

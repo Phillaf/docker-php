@@ -7,19 +7,21 @@ services:
     external_links:
       - mysql
     volumes:
-      - ./:/usr/share/nginx/www
+      - ${BACKEND_CODE_PATH}:/usr/share/nginx/www
 
   nginx:
     container_name: nginx
     build: docker/nginx
+    ports:
+      - ${BACKEND_PORT_MAPPING}
     links:
       - php
     volumes:
-      - ./:/usr/share/nginx/www
+      - ${BACKEND_CODE_PATH}:/usr/share/nginx/www
     environment:
-      VIRTUAL_HOST: backend
+      VIRTUAL_HOST: ${BACKEND_HOST}
 
 networks:
   default:
     external:
-      name: myapp
+      name: ${APP_NETWORK}

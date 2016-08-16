@@ -1,15 +1,20 @@
 # Docker environment for php projects
 
-Docker-compose setup for php-nginx project. Some utility commands are wrapped
-in the makefile.
+Docker-compose example setup for php-nginx project.
 
-- `make update` downloads composer, pull images, pull repo, build images
-- `make up` shortcut for docker-compose up 
-- `make down` shortcut for docker-compose down
-- `make composer` run composer.phar using the php container
+## Installation
 
+1. Copy `.env.default` to `.env` and tweak values according to your needs
+2. Create a network that matches the name in your .env file `docker `docker network create myapp`
+3. Start your docker-environment with `docker-compose up`
 
-Issues:
+## Utility tools
 
-- The params (starting with a dash "-") are intercepted by make and cannot be
-piped into composer
+Make the files in `bin/` folder executable by running `chmod +x bin/*` .
+
+- `bin/install` Downloads composer, phpunit and phpcs to the local machine
+- `bin/composer` Runs composer on the local repo using the php image interpreter
+
+TODO:  
+- `bin/phpunit` Runs composer on the local repo using the php image interpreter
+- `bin/phpcs` Runs composer on the local repo using the php image interpreter
