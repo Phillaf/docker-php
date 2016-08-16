@@ -1,4 +1,4 @@
 #!/bin/bash
 
-source $(pwd)/.env
+source .env
 wget -q https://getcomposer.org/download/1.2.0/composer.phar -O ./vendor/composer
