@@ -2,3 +2,4 @@
 
 source .env
 wget -q https://getcomposer.org/download/1.2.0/composer.phar -O ./vendor/composer
+wget -q http://vim-php.com/phpctags/install/phpctags.phar -O ./vendor/phpctags
