@@ -1,7 +1,0 @@
-#!/bin/bash
-
-source .env
-docker run -it --rm \
-    -v ${BACKEND_CODE_PATH}:/app \
-    -v $(pwd)/vendor:/vendor \
-    -w /app ${PHP_IMAGE} php /vendor/composer $@

@@ -3,25 +3,15 @@ services:
 
   php:
     container_name: php
-    build: docker/php
-    external_links:
-      - mysql
     volumes:
-      - ${BACKEND_CODE_PATH}:/usr/share/nginx/www
+      - ./:/usr/share/nginx/www
 
   nginx:
     container_name: nginx
-    build: docker/nginx
+    build: images/nginx-php
     ports:
-      - ${BACKEND_PORT_MAPPING}
+      - 80:80
     links:
       - php
     volumes:
-      - ${BACKEND_CODE_PATH}:/usr/share/nginx/www
-    environment:
-      VIRTUAL_HOST: ${BACKEND_HOST}
-
-networks:
-  default:
-    external:
-      name: ${APP_NETWORK}
+      - ./:/usr/share/nginx/www

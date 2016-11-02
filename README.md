@@ -1,20 +1,19 @@
-# Docker environment for php projects
+# Docker PHP
 
-Docker-compose example setup for php-nginx project.
+A collection of helpful images and compose files for php development.
 
-## Installation
+## Usage
 
-1. Copy `.env.default` to `.env` and tweak values according to your needs
-2. Create a network that matches the name in your .env file `docker network create myapp`
-3. Start your docker-environment with `docker-compose up`
+Pick an override file, and move it in the root folder with the name
+docker-compose.override.yml. Then run `docker-compose up` 
 
-## Utility tools
+## Docker images for php projects
 
-Make the files in `bin/` folder executable by running `chmod +x bin/*`.
+[php-mysql](https://hub.docker.com/r/phillaf/php-mysql/): Based off php:7-fpm
+with mysql and redis drivers  
+[nginx-php](https://hub.docker.com/r/phillaf/nginx-php/): Based on nginx, using
+"php" as the host name for FastGCI connections
 
-- `bin/install` Downloads composer, phpunit and phpcs to the local machine
-- `bin/composer` Runs composer on the local repo using the php image interpreter
+## Docker-compose override files
 
-TODO:  
-- `bin/phpunit` Runs composer on the local repo using the php image interpreter
-- `bin/phpcs` Runs composer on the local repo using the php image interpreter
+prod: Simple php+nginx stack

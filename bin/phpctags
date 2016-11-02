@@ -1,7 +1,0 @@
-#!/bin/bash
-
-source .env
-docker run -it --rm \
-    -v ${BACKEND_CODE_PATH}:${BACKEND_CODE_PATH} \
-    -v $(pwd)/vendor:/vendor \
-    -w ${BACKEND_CODE_PATH} ${PHP_IMAGE} php /vendor/phpctags $@
