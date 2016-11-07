@@ -9,11 +9,13 @@ docker-compose.override.yml. Then run `docker-compose up`
 
 ## Docker images for php projects
 
-[php-mysql](https://hub.docker.com/r/phillaf/php-mysql/): Based off php:7-fpm
-with mysql and redis drivers  
-[nginx-php](https://hub.docker.com/r/phillaf/nginx-php/): Based on nginx, using
-"php" as the host name for FastGCI connections
+[nginx-fpm-webroot](https://hub.docker.com/r/phillaf/nginx-php/): nginx with fastcgi enabled, pointing to the `webroot` folder  
+[nginx-fpm](https://hub.docker.com/r/phillaf/nginx-php/): nginx with fastcgi enabled  
+[php-mysql](https://hub.docker.com/r/phillaf/php-mysql/): php:7-fpm with mysql  
+[php-redis](https://hub.docker.com/r/phillaf/php-redis/): php:7-fpm with redis drivers  
+[php-rmi](https://hub.docker.com/r/phillaf/php-rmi/): php:7-fpm with redis, mysql and intl extensions  
 
-## Docker-compose override files
+## Docker-compose example files
 
-prod: Simple php+nginx stack
+default: Simple stack with php, nginx, mysql and redis
+cakephp.dev: All Cakephp dependencies, redis + mysql + phpmyadmin + redis commander

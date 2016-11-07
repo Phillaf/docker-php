@@ -1,0 +1,68 @@
+version: '2'
+services:
+
+# To use with CakePHP, update config/app.php with the following values
+#  
+# Cache.default.className=> 'Redis'
+# Cache.default.host => 'redis'
+#
+# Cache._cake_core_.className=> 'Redis'
+# Cache._cake_core_.host => 'redis'
+#
+# Cache._cake_model_.className=> 'Redis'
+# Cache._cake_model_.host => 'redis'
+#
+# Datasources.default.host => 'mysql'
+# Datasources.default.username => 'root'
+# Datasources.default.password=> 'secret'
+# Datasources.default.database => 'app'
+
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - 6379:6379
+
+  mysql:
+    image: mysql
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=app
+    ports:
+      - 3306:3306
+
+  php:
+    container_name: php
+    image: phillaf/php-mri
+    links:
+      - mysql
+    volumes:
+      - ./:/usr/share/nginx/www
+
+  nginx:
+    container_name: nginx
+    image: phillaf/nginx-fpm-webroot
+    links:
+      - php
+    ports:
+      - 80:80
+    volumes:
+      - ./:/usr/share/nginx/www
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    links:
+      - mysql:db
+    ports:
+      - 8080:80
+
+  rediscommander:
+    image: tenstartups/redis-commander
+    container_name: rediscommander
+    links:
+      - redis
+    ports:
+      - 8081:8081
+    command: --redis-host redis
