@@ -14,7 +14,7 @@ docker-compose.override.yml. Then run `docker-compose up`
 [php-mysql](https://hub.docker.com/r/phillaf/php-mysql/): php:7-fpm, mysql extension  
 [php-redis](https://hub.docker.com/r/phillaf/php-redis/): php:7-fpm, phpredis extension  
 [php-mri](https://hub.docker.com/r/phillaf/php-mri/): php:7-fpm, mysql+phpredis+intl extensions  
-[php-mri](https://hub.docker.com/r/phillaf/php-mric/): php:7-fpm, mysql+phpredis+intl extensions, composer  
+[php-mri](https://hub.docker.com/r/phillaf/php-mricg/): php:7-fpm, mysql+phpredis+intl extensions, composer, git  
 
 ## Docker-compose example files
 
