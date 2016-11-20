@@ -14,7 +14,7 @@ services:
 #
 # Datasources.default.host => 'mysql'
 # Datasources.default.username => 'root'
-# Datasources.default.password=> 'secret'
+# Datasources.default.password=> ''
 # Datasources.default.database => 'app'
 
   redis:
@@ -27,8 +27,9 @@ services:
     image: mysql
     container_name: mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=app
+      - MYSQL_ROOT_PASSWORD=
     ports:
       - 3306:3306
 
@@ -58,6 +59,9 @@ services:
       - mysql:db
     ports:
       - 8080:80
+    environment:
+      - PMA_USER=root
+      - PMA_PASSWORD=
 
   rediscommander:
     image: tenstartups/redis-commander
