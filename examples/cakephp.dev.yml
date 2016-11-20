@@ -37,6 +37,7 @@ services:
     image: phillaf/php-mri
     links:
       - mysql
+    working_dir: /usr/share/nginx/www
     volumes:
       - ./:/usr/share/nginx/www
 

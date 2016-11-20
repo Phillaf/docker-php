@@ -13,6 +13,7 @@ services:
     container_name: php
     links:
       - mysql
+    working_dir: /usr/share/nginx/www
     volumes:
       - ./:/usr/share/nginx/www
 
