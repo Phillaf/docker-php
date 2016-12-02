@@ -17,7 +17,6 @@ docker-compose.override.yml. Then run `docker-compose up`
 [php-redis](https://hub.docker.com/r/phillaf/php-redis/): php:7-fpm, phpredis extension  
 [php-mri](https://hub.docker.com/r/phillaf/php-mri/): php:7-fpm, mysql+phpredis+intl extensions  
 [php-mricg](https://hub.docker.com/r/phillaf/php-mricg/): php:7-fpm, mysql+phpredis+intl extensions, composer, git  
-[php-tests](https://hub.docker.com/r/phillaf/php-tests/): php-mricg with the addition of npm and newman for api integration testing  
 
 ## Docker-compose example files
 
