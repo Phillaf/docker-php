@@ -1,4 +1,4 @@
-FROM php:7-fpm 
+FROM php:7.0-fpm 
 
 # Redis
 ENV PHPREDIS_VERSION 3.0.0
