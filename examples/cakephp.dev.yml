@@ -46,7 +46,7 @@ services:
     container_name: nginx
     image: phillaf/nginx-fpm-webroot
     links:
-      - php
+      - php:fpm
     ports:
       - 80:80
     volumes:
